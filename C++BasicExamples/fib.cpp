@@ -12,5 +12,8 @@ int fib(int n){
 }
 
 int main(){
-  cout << fib(4) << "\n";
+  int x;
+  cout << "Enter desired fibonacci number: ";
+  cin >> x;
+  cout << fib(x) << "\n";
 }
