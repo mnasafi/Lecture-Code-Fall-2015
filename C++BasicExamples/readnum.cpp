@@ -7,12 +7,11 @@ using namespace std;
 int main(){
   int vals[max];
   int num=0;
-  while(num<max){
+  for(;num<max;num++){
     cin >>vals[num];
     if(vals[num]==0){
       break;
     }
-    num++;
   }
   cout << endl;
   for(;num>=0;num--){
