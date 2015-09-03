@@ -1,6 +1,9 @@
 #ifndef MY_OBJECT_H
 #define MY_OBJECT_H
 
+#include <iostream>
+using namespace std;
+
 class My_object
 {
   public:

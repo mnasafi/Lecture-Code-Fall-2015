@@ -1,6 +1,4 @@
-#include <iostream>
-
-using namespace std;
+//Don't have any other includes in .cpp
 #include "my_object.h"
 
 My_object::My_object(){
