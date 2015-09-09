@@ -4,16 +4,20 @@
 using namespace std;
 
 int main(int argc, char* argv[]){
-  int size = 0;
-  if(argc>1){
-    size = atoi(argv[1]);
+  int size = -1;
+  int *x;
+  while(size!=0){
+    cout << "Enter Size (0 to quit):";
+    cin >> size;
+    x = new int(size);
+    for(int i=0;i<size;i++){
+      x[i]=i;
+    }
+    for(int i=0;i<size;i++){
+      cout << x[i] << endl;
+    }
+    delete x;
   }
-  int x[size];
-  for(int i=0;i<size;i++){
-    x[i]=i;
-  }
-  for(int i=0;i<size;i++){
-    cout << x[i] << endl;
-  }
+
 
 }
