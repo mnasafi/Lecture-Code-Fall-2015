@@ -9,14 +9,15 @@ class List{
     void print();
   private:
     class Node{
-      int m_value;
-      Node *m_next;
-      Node(int value, Node *next){
-        m_value=value;
-        m_next=next;
-      }
+      public:
+        int m_value;
+        Node *m_next;
+        Node(int value, Node *next){
+          m_value=value;
+          m_next=next;
+        }
     };
     Node *m_head;
-}
+};
 
 #endif
