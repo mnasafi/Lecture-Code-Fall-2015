@@ -6,6 +6,8 @@ class List{
     List();
     ~List();
     void insert(int value);
+    void insertAtEnd(int value);
+    void insertSorted(int value);
     void print();
   private:
     class Node{

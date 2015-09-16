@@ -7,10 +7,12 @@ int main(){
   List list;
 
   list.print();
-  list.insert(1);
+  list.insertSorted(4);
   list.print();
-  list.insert(2);
+  list.insertSorted(2);
   list.print();
-  list.insert(3);
+  list.insertSorted(3);
+  list.print();
+  list.insertSorted(6);
   list.print();
 }

@@ -19,6 +19,32 @@ List::~List(){
 void List::insert(int value){
   m_head=new Node(value, m_head);
 }
+void List::insertSorted(int value){
+  //Combined null head & value less than head check
+  if(!m_head||m_head->m_value>value){
+    m_head=new Node(value,m_head);
+  }
+  else{
+    Node* cur = m_head;
+    while(cur->m_next&&cur->m_next->m_value<value){
+      cur=cur->m_next;
+    }
+    cur->m_next=new Node(value, cur->m_next);
+  }
+}
+
+void List::insertAtEnd(int value){
+  if(m_head==NULL){
+    m_head=new Node(value, m_head);
+  }
+  else{
+    Node *cur = m_head;
+    while(cur->m_next!=NULL){
+      cur=cur->m_next;
+    }
+    cur->m_next=new Node(value, NULL);
+  }
+}
 void List::print(){
   if(m_head!=NULL){
     Node* cur = m_head;
