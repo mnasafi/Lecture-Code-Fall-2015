@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <queue>
+#include <vector>
 using namespace std;
 
 class Tree
@@ -17,6 +18,7 @@ class Tree
     void inorder(){inorder(m_root);}
     void postorder(){postorder(m_root);}
     void breadth();
+    void balance(){balance(m_root);}
     int sumleaves(){return sumleaves(m_root);}
   private:
     class Node
@@ -31,6 +33,9 @@ class Tree
     };
     Node *m_root;
     bool insert(int value, Node *&cur_root);
+    void balance(Node *&cur_root);
+    void balance(Node *&cur_root, vector<int> values, int start, int stop);
+    void values(Node* cur_root, vector<int> &values);
     bool lookup(int value, Node *cur_root);
     void inorder(Node* cur_root);
     void preorder(Node* cur_root);

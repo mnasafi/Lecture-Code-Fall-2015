@@ -58,6 +58,37 @@ void Tree::postorder(Node* cur_root){
   cout << cur_root->m_value << " ";
 }
 
+void Tree::balance(Node *&cur_root){
+  if(!cur_root){
+    return;
+  }
+  std::vector<int> v;
+  values(cur_root, v);
+  delete cur_root;
+  balance(m_root, v, 0, v.size()-1);
+}
+void Tree::balance(Node *&cur_root, vector<int> v, int start, int stop){
+
+  if(start==stop){
+    cur_root=new Node(v[start]);
+    return;
+  }
+  int middle = (stop-start)/2 + start;
+  //cout << middle << endl;
+  cur_root=new Node(v[middle]);
+  balance(cur_root->m_left, v, start,middle-1);
+  balance(cur_root->m_right, v, middle+1, stop);
+}
+
+void Tree::values(Node* cur_root, std::vector<int> &v){
+  if(!cur_root){
+    return;
+  }
+  values(cur_root->m_left, v);
+  v.push_back(cur_root->m_value);
+  values(cur_root->m_right,v);
+}
+
 void Tree::breadth(){
   if(!m_root){
     return;
@@ -90,14 +121,15 @@ int Tree::sumleaves(Node* cur_root){
 
 int main(){
   Tree tree;
-  tree.insert(5);
-  tree.insert(3);
   tree.insert(2);
+  tree.insert(3);
   tree.insert(4);
-  tree.insert(7);
+  tree.insert(5);
   tree.insert(6);
+  tree.insert(7);
   tree.insert(8);
-
+  tree.insert(9);
+  tree.balance();
   for(int i=0;i<20;i++){
     if(tree.lookup(i)){
       cout << i << " is in tree\n";
